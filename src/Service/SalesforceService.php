@@ -57,13 +57,8 @@ class SalesforceService implements SalesforceServiceInterface
         // add conditions
         if (is_array($conditions) && !empty($conditions)) {
             $where = "+where+%s";
-            $cond = [];
-            foreach ($conditions as $key => $condition) {
-                $cond[] = $key . '+' . '=' . '+\'' . $condition .'\'';
-            }
-            $query = $query . sprintf($where, implode('+and+', $cond));
+            $query = $query . sprintf($where, implode('+and+', $conditions));
         }
-        
         return $this->client->get('query', $query);
     }
 
