@@ -48,7 +48,7 @@ salesforce:
     rest:
         version: "v35.0"
         endpoint: "https://yourinstance.salesforce.com"
-        
+
 ```
 
 ### Use in controller:
@@ -71,9 +71,9 @@ $id = $result->getId();
 
 try {
     $this->get('salesforce.service')->update('Account', '001D000000INjVe', [ 'someField' => 'someValue' ]);
-    
+
 } catch (UpdateSobjectException $e) {
-    
+
     // update failed
     echo $e->getMessage();
 }
@@ -86,7 +86,7 @@ $account = new \stdClass();
 $account->Current_Balance__c = '21023';
 $account->Current_Count_of_Deposit__c = 0;
 $account->Number_of_Active_Days__c = 12;
- 
+
 // account sObject ready to send to salesforce
 $accountSobject = new Sobject();
 $accountSobject->setName('Account');
@@ -94,9 +94,15 @@ $accountSobject->setContent($account);
 
 $result = $this->get('salesforce.service')->upsert($sObject, 'Player_Account__c', '123132');
 ```
-#### GET METADATA 
+#### GET METADATA
 
 ```php
 $metaData = $this->get('salesforce.service')->getMetaDataForSobject('Account');
 
+```
+
+#### FIND RECORDS
+```php
+$fields = ['Id', 'Name', 'Phone'];
+$result = $this->get('salesforce.service')->query($fields, 'Account', ["Name != 'Joe Blogs'", "Phone = '1234-5678'"]);
 ```
