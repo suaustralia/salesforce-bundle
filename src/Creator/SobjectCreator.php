@@ -17,7 +17,7 @@ class SobjectCreator implements SobjectCreatorInterface
      * @param $data
      * @return mixed
      */
-    public function create($name, $data)
+    public function create($name, $data): mixed
     {
         $sobject = new Sobject();
         $sobject->setName($name);

@@ -17,7 +17,7 @@ class SalesforceExtension extends Extension
     /**
      * @return string
      */
-    public function getAlias()
+    public function getAlias(): string
     {
         return 'salesforce';
     }
@@ -26,7 +26,7 @@ class SalesforceExtension extends Extension
      * @param array $configs
      * @param ContainerBuilder $container
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);

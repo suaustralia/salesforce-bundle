@@ -13,7 +13,7 @@ class UsernamePasswordCredentials implements CredentialsKeeperInterface
     /**
      * @var array
      */
-    protected $credentials;
+    protected array $credentials;
 
     /**
      * UsernamePasswordCredentials constructor.
@@ -37,7 +37,7 @@ class UsernamePasswordCredentials implements CredentialsKeeperInterface
     /**
      * @return array
      */
-    public function getCredentials()
+    public function getCredentials(): array
     {
         return $this->credentials;
     }

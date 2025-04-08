@@ -4,6 +4,12 @@
   "type": "symfony-bundle",
   "keywords": [ "salesforce"],
   "license": "MIT",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/suaustralia/salesforce"
+    }
+  ],
   "require": {
     "symfony/http-kernel": "^3.2|^4.0|^4.1|^5.0|^6.0|^7.0",
     "symfony/config": "^3.2|^4.0|^4.1|^5.0|^6.0|^7.0",
@@ -11,7 +17,7 @@
     "suaustralia/salesforce": "^1.1.9.1"
   },
   "require-dev": {
-    "phpunit/phpunit": "~6.5"
+    "phpunit/phpunit": "^9.0"
   },
   "autoload": {
     "psr-4": {
